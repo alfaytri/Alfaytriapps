@@ -15,29 +15,23 @@
     :root{
       --bg:#eef1f6; --card:#ffffff; --card-2:#f7f9fc;
       --ink:#0f172a; --muted:#5a6b82; --faint:#8494a8; --border:#e2e8f0; --border-2:#eaeef4;
-      --accent:#f97316; --accent-soft:#fff1e6;
-      --blue:#3b82f6; --green:#16a34a; --teal:#0d9488; --violet:#7c5cff; --amber:#d97706;
-      --live-bg:#e7f6ec; --live-ink:#137a3a;
-      --soon-bg:#eef1f6; --soon-ink:#64748b;
+      --accent:#f97316; --accent-soft:#fff1e6; --btn:#f97316; --btn-hover:#ea580c;
+      --blue:#3b82f6;
       --shadow:0 1px 2px rgba(15,23,42,.06), 0 12px 30px -14px rgba(15,23,42,.16);
       --radius:16px;
     }
     @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
       --bg:#080d16; --card:#141d2c; --card-2:#0f1826;
       --ink:#e7edf5; --muted:#93a2b8; --faint:#61708a; --border:#243244; --border-2:#1c2838;
-      --accent:#fb8c3c; --accent-soft:#2a1d10;
-      --blue:#5b9bff; --green:#3ddb84; --teal:#2dd4bf; --violet:#a48bff; --amber:#f0b45e;
-      --live-bg:#123024; --live-ink:#5fe39a;
-      --soon-bg:#18212f; --soon-ink:#93a2b8;
+      --accent:#fb8c3c; --accent-soft:#2a1d10; --btn:#f97316; --btn-hover:#fb8c3c;
+      --blue:#5b9bff;
       --shadow:0 1px 2px rgba(0,0,0,.4), 0 14px 34px -16px rgba(0,0,0,.6);
     }}
     :root[data-theme="dark"]{
       --bg:#080d16; --card:#141d2c; --card-2:#0f1826;
       --ink:#e7edf5; --muted:#93a2b8; --faint:#61708a; --border:#243244; --border-2:#1c2838;
-      --accent:#fb8c3c; --accent-soft:#2a1d10;
-      --blue:#5b9bff; --green:#3ddb84; --teal:#2dd4bf; --violet:#a48bff; --amber:#f0b45e;
-      --live-bg:#123024; --live-ink:#5fe39a;
-      --soon-bg:#18212f; --soon-ink:#93a2b8;
+      --accent:#fb8c3c; --accent-soft:#2a1d10; --btn:#f97316; --btn-hover:#fb8c3c;
+      --blue:#5b9bff;
       --shadow:0 1px 2px rgba(0,0,0,.4), 0 14px 34px -16px rgba(0,0,0,.6);
     }
     *{box-sizing:border-box}
@@ -52,9 +46,9 @@
 
     /* header */
     header{display:flex; align-items:center; gap:13px; margin-bottom:clamp(24px,4vw,38px)}
-    .logo{width:44px; height:44px; border-radius:12px; background:linear-gradient(150deg,var(--accent),#ff9d4d);
+    .logo{width:44px; height:44px; border-radius:12px; background:linear-gradient(150deg,var(--btn),#ff9d4d);
       display:grid; place-items:center; color:#fff; flex:none;
-      box-shadow:0 6px 16px -4px color-mix(in srgb,var(--accent) 55%,transparent)}
+      box-shadow:0 6px 16px -4px color-mix(in srgb,var(--btn) 55%,transparent)}
     .logo svg{width:24px; height:24px}
     header h1{margin:0; font-size:clamp(20px,3vw,25px); font-weight:800; letter-spacing:-.02em}
     header p{margin:2px 0 0; font-size:13px; color:var(--muted); font-weight:500}
@@ -66,31 +60,30 @@
     .hero p{margin:8px 0 0; font-size:15px; color:var(--muted); max-width:56ch}
 
     /* grid */
-    .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:15px; margin-top:6px}
-    .app{position:relative; text-align:left; text-decoration:none; color:inherit; background:var(--card);
-      border:1px solid var(--border); border-radius:14px; padding:20px; display:flex; flex-direction:column; gap:11px;
-      min-height:188px; box-shadow:var(--shadow);
-      transition:transform .16s cubic-bezier(.22,1,.36,1), box-shadow .16s, border-color .16s}
-    a.app{cursor:pointer}
-    a.app:hover{transform:translateY(-4px); box-shadow:0 16px 32px -12px rgba(15,23,42,.30); border-color:color-mix(in srgb,var(--accent) 45%,var(--border))}
-    a.app:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
+    .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:15px; margin-top:6px;
+      margin-bottom:clamp(28px,5vw,44px)}
+    .app{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:20px;
+      display:flex; flex-direction:column; gap:11px; min-height:196px; box-shadow:var(--shadow)}
     .app .ic{width:48px; height:48px; border-radius:12px; display:grid; place-items:center; color:#fff; flex:none}
     .app .ic svg{width:25px; height:25px}
     .app h3{margin:0; font-size:16px; font-weight:700; letter-spacing:-.01em}
     .app p{margin:0; font-size:13px; color:var(--muted); line-height:1.45; flex:1}
-    .row{display:flex; align-items:center; justify-content:space-between; gap:8px}
-    .pill{font-size:10.5px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; padding:3px 9px; border-radius:999px; white-space:nowrap}
-    .pill.live{background:var(--live-bg); color:var(--live-ink)}
-    .pill.soon{background:var(--soon-bg); color:var(--soon-ink)}
-    .open{display:inline-flex; align-items:center; gap:5px; font-size:12.5px; font-weight:700; color:var(--accent)}
-    .open svg{width:15px; height:15px; transition:transform .16s}
-    a.app:hover .open svg{transform:translateX(3px)}
-    .app.soon{opacity:.72}
-    .app.soon .ic{background:var(--soon-bg)!important; color:var(--faint)}
-    .app.soon h3{color:var(--muted)}
-    .muted-open{font-size:12.5px; font-weight:600; color:var(--faint)}
 
-    footer{margin-top:clamp(28px,5vw,44px); padding-top:18px; border-top:1px solid var(--border);
+    /* action buttons */
+    .actions{display:flex; gap:8px; flex-wrap:wrap; margin-top:2px}
+    .btn{display:inline-flex; align-items:center; gap:6px; text-decoration:none; font-family:inherit;
+      font-size:13px; font-weight:700; letter-spacing:-.005em; padding:9px 15px; border-radius:10px;
+      border:1px solid transparent; cursor:pointer;
+      transition:transform .14s cubic-bezier(.22,1,.36,1), background .14s, border-color .14s, box-shadow .14s}
+    .btn svg{width:14px; height:14px; transition:transform .14s}
+    .btn.primary{background:var(--btn); color:#fff; box-shadow:0 4px 12px -4px color-mix(in srgb,var(--btn) 55%,transparent)}
+    .btn.primary:hover{background:var(--btn-hover); transform:translateY(-1px)}
+    .btn.primary:hover svg{transform:translateX(2px)}
+    .btn.ghost{background:transparent; color:var(--accent); border-color:color-mix(in srgb,var(--accent) 40%,var(--border))}
+    .btn.ghost:hover{background:var(--accent-soft); border-color:var(--accent)}
+    .btn:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+
+    footer{margin-top:auto; padding-top:18px; border-top:1px solid var(--border);
       display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
       font-size:12.5px; color:var(--faint)}
     footer .lock{display:inline-flex; align-items:center; gap:6px}
@@ -110,68 +103,35 @@
     </header>
 
     <div class="hero">
-      <h2>All your Alfaytri apps, <span class="g">in one place.</span></h2>
-      <p>Pick an app to open it. Each app has its own secure sign-in.</p>
+      <h2>Welcome to <span class="g">Alfaytri.</span></h2>
+      <p>Open an app below — each has its own secure sign-in.</p>
     </div>
 
     <div class="grid">
-      <!-- LIVE APPS — real links. Add new live apps by copying one of these <a> blocks. -->
-      <a class="app" href="https://inventory.alfaytri.com">
-        <span class="ic" style="background:var(--accent)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg></span>
+      <!-- Inventory has two environments: Production (live data) and Staging (for testing). -->
+      <div class="app">
+        <span class="ic" style="background:var(--btn)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg></span>
         <h3>Inventory &amp; Warehouse</h3>
         <p>Stock, purchasing, sales, receivals and custody.</p>
-        <div class="row">
-          <span class="open">Open<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          <span class="pill live">Live</span>
+        <div class="actions">
+          <a class="btn primary" href="https://inventory.alfaytri.com">Production<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn ghost" href="https://inventorystaging.alfaytri.com">Staging</a>
         </div>
-      </a>
+      </div>
 
-      <a class="app" href="https://track.alfaytri.com">
+      <!-- Fleet Tracking opens the Optimum Fleet portal (external). -->
+      <div class="app">
         <span class="ic" style="background:var(--blue)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13l2-5h9v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span>
         <h3>Fleet Tracking</h3>
         <p>Live vehicle GPS, routes and driver activity.</p>
-        <div class="row">
-          <span class="open">Open<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          <span class="pill live">Live</span>
-        </div>
-      </a>
-
-      <!-- COMING SOON — plain <div>, not clickable. Turn one live: change <div class="app soon"> to
-           <a class="app" href="https://service.alfaytri.com">, drop the .soon styles, and swap the
-           .muted-open span for the "Open" span + a .pill.live badge. -->
-      <div class="app soon">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 6a3.5 3.5 0 0 0-4.7 4.4L4 15.6 6.4 18l5.2-5.3A3.5 3.5 0 0 0 16 8l-2 2-2-2 2-2z"/></svg></span>
-        <h3>Service</h3>
-        <p>Job cards, technicians, scheduling and site visits.</p>
-        <div class="row">
-          <span class="muted-open">Not yet available</span>
-          <span class="pill soon">Coming soon</span>
-        </div>
-      </div>
-
-      <div class="app soon">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h9l3 3v15l-3-2-2 2-2-2-2 2-3-2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span>
-        <h3>Finance &amp; Accounting</h3>
-        <p>Invoices, payments, statements and P&amp;L.</p>
-        <div class="row">
-          <span class="muted-open">Not yet available</span>
-          <span class="pill soon">Coming soon</span>
-        </div>
-      </div>
-
-      <div class="app soon">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><path d="M17 8.5a3 3 0 0 1 0 5M18.5 20a5 5 0 0 0-3-4.6"/></svg></span>
-        <h3>HR &amp; People</h3>
-        <p>Staff records, attendance, leave and payroll.</p>
-        <div class="row">
-          <span class="muted-open">Not yet available</span>
-          <span class="pill soon">Coming soon</span>
+        <div class="actions">
+          <a class="btn primary" href="https://avl.optimumfleet.net/jsp/avl_login.jsp" target="_blank" rel="noopener noreferrer">Open<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
     </div>
 
     <footer>
-      <span class="lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10.5" width="16" height="10" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>Each app has its own secure sign-in</span>
+      <span class="lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10.5" width="16" height="10" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>Secure sign-in on each app</span>
       <span class="dom">apps.alfaytri.com</span>
     </footer>
   </div>
