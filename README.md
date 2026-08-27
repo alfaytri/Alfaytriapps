@@ -6,7 +6,7 @@ where the user signs in. There is **no build step** — it's plain HTML/CSS.
 ```
 alfaytri-apps/
 ├── index.html     ← the launcher page (edit tiles here)
-├── favicon.svg    ← tab icon (orange grid)
+├── logo.png       ← Al Faytri logo (header + browser-tab icon)
 ├── vercel.json    ← static hosting config + security headers
 └── README.md      ← this file
 ```
