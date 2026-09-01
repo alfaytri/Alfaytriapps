@@ -16,7 +16,7 @@
       --bg:#eef1f6; --card:#ffffff; --card-2:#f7f9fc;
       --ink:#0f172a; --muted:#5a6b82; --faint:#8494a8; --border:#e2e8f0; --border-2:#eaeef4;
       --accent:#f97316; --accent-soft:#fff1e6; --btn:#f97316; --btn-hover:#ea580c;
-      --blue:#3b82f6;
+      --blue:#3b82f6; --green:#10b981;
       --shadow:0 1px 2px rgba(15,23,42,.06), 0 12px 30px -14px rgba(15,23,42,.16);
       --radius:16px;
     }
@@ -24,14 +24,14 @@
       --bg:#080d16; --card:#141d2c; --card-2:#0f1826;
       --ink:#e7edf5; --muted:#93a2b8; --faint:#61708a; --border:#243244; --border-2:#1c2838;
       --accent:#fb8c3c; --accent-soft:#2a1d10; --btn:#f97316; --btn-hover:#fb8c3c;
-      --blue:#5b9bff;
+      --blue:#5b9bff; --green:#34d399;
       --shadow:0 1px 2px rgba(0,0,0,.4), 0 14px 34px -16px rgba(0,0,0,.6);
     }}
     :root[data-theme="dark"]{
       --bg:#080d16; --card:#141d2c; --card-2:#0f1826;
       --ink:#e7edf5; --muted:#93a2b8; --faint:#61708a; --border:#243244; --border-2:#1c2838;
       --accent:#fb8c3c; --accent-soft:#2a1d10; --btn:#f97316; --btn-hover:#fb8c3c;
-      --blue:#5b9bff;
+      --blue:#5b9bff; --green:#34d399;
       --shadow:0 1px 2px rgba(0,0,0,.4), 0 14px 34px -16px rgba(0,0,0,.6);
     }
     *{box-sizing:border-box}
@@ -125,6 +125,16 @@
         <p>Live vehicle GPS, routes and driver activity.</p>
         <div class="actions">
           <a class="btn primary" href="https://avl.optimumfleet.net/jsp/avl_login.jsp" target="_blank" rel="noopener noreferrer">Open<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Odoo Backup — database backups for the Odoo ERP (internal). -->
+      <div class="app">
+        <span class="ic" style="background:var(--green)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg></span>
+        <h3>Odoo Backup</h3>
+        <p>Database backups and restore points for the Odoo ERP.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://odoobackup.alfaytri.com/">Open<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
     </div>
